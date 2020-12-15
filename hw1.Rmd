@@ -1,0 +1,88 @@
+---
+title: "Homework 1"
+output: html_document
+author: 
+- teammate 1
+- teammate 2
+- teammate 3
+- teammate 4
+---
+
+### Task 1 - Implement fizzbuzz
+
+#### Write up
+
+<!-- In this section include your write up for this task -->
+
+#### Function
+
+```{r fizzbuzz}
+fizzbuzz = function(input) {
+
+}
+```
+
+
+
+### Task 2 - Re-Implement fizzbuzz
+
+#### Write up
+
+<!-- In this section include your write up for this task -->
+
+#### Function
+
+```{r fizzbuzz_s3}
+fizzbuzz_s3 = function(input) {
+
+}
+```
+
+
+
+### Task 3 - Testing
+
+<!-- You should revise and expand on the included tests here -->
+
+#### Good Inputs
+
+```{r good_inputs, error = TRUE}
+stopifnot( fizzbuzz(1)  == "1"       )
+stopifnot( fizzbuzz(3)  == "Fizz"    )
+stopifnot( fizzbuzz(5)  == "Buzz"    )
+stopifnot( fizzbuzz(15) == "FizzBuzz")
+
+stopifnot(all( fizzbuzz(1:5) == c("1", "2", "Fizz", "4", "Buzz") ))
+
+stopifnot(all( fizzbuzz(9:15) == c("Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz") ))
+stopifnot(all( fizzbuzz(15:9) == c("FizzBuzz", "14", "13", "Fizz", "11", "Buzz", "Fizz") ))
+```
+
+
+#### Bad Inputs
+
+```{r throws_error}
+# Testing helper function, returns TRUE if expr throws an error FALSE otherwise.
+throws_error = function(expr) {
+  inherits(try(expr, silent = TRUE), "try-error")
+}
+```
+
+```{r bad_inputs, error = TRUE}
+stopifnot(throws_error( fizzbuzz(-1) ))
+stopifnot(throws_error( fizzbuzz(-3) ))
+stopifnot(throws_error( fizzbuzz(-5) ))
+
+stopifnot(throws_error( fizzbuzz(TRUE) ))
+stopifnot(throws_error( fizzbuzz(FALSE) ))
+
+stopifnot(throws_error( fizzbuzz(Inf) ))
+stopifnot(throws_error( fizzbuzz(-Inf) ))
+stopifnot(throws_error( fizzbuzz(NaN) ))
+
+stopifnot(throws_error( fizzbuzz("A") ))
+stopifnot(throws_error( fizzbuzz(1.5) ))
+stopifnot(throws_error( fizzbuzz(1i) ))
+stopifnot(throws_error( fizzbuzz(4i) ))
+```
+
